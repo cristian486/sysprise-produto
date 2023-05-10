@@ -1,0 +1,20 @@
+create table produto(
+    id bigint not null auto_increment,
+    nome varchar(200) not null unique,
+    descricao varchar(300) not null,
+    observacao varchar(300),
+    codigo_de_barras varchar(15) not null unique,
+    peso_bruto numeric(9, 4),
+    peso_liquido numeric(9, 4),
+    preco_de_compra numeric(8, 3) not null,
+    preco_de_venda numeric(8, 3) not null,
+    altura numeric(8, 3),
+    largura numeric(8, 3),
+    profundidade numeric(8, 3),
+    estoque_minimo numeric(8, 3),
+    venda_fracionada boolean,
+    habilitado boolean,
+    unidade_id bigint not null,
+    categoria_id bigint not null,
+    constraint produtopk primary key(id)
+);
