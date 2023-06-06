@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     Page<Produto> findProdutoByHabilitadoTrue(Pageable pageable);
+    boolean existsByCategoriaId(Long id);
+    boolean existsByUnidadeId(Long id);
 }

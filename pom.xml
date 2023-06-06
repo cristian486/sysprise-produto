@@ -95,7 +95,14 @@
 		<dependency>
 			<groupId>net.devh</groupId>
 			<artifactId>grpc-client-spring-boot-starter</artifactId>
-			<version>2.13.1.RELEASE</version>
+			<version>2.14.0.RELEASE</version>
+		</dependency>
+
+		<!--	PARA INICIAR O SERVER gRPC COM O SPRING	-->
+		<dependency>
+			<groupId>net.devh</groupId>
+			<artifactId>grpc-spring-boot-starter</artifactId>
+			<version>2.14.0.RELEASE</version>
 		</dependency>
 	</dependencies>
 
