@@ -93,10 +93,12 @@ public class Produto {
 
         if(dadosAtualizar.vendaFracionada() != null)
             this.vendaFracionada = dadosAtualizar.vendaFracionada();
-    }
 
-    public Boolean permitidaVendaFracionada() {
-        return this.vendaFracionada;
+        if(dadosAtualizar.unidade_id() != null && !dadosAtualizar.unidade_id().equals(this.unidadeId))
+            this.unidadeId = dadosAtualizar.unidade_id();
+
+        if(dadosAtualizar.categoria_id() != null && !dadosAtualizar.categoria_id().equals(this.categoriaId))
+            this.categoriaId = dadosAtualizar.categoria_id();
     }
 
     public void desabilitarCadastro() {

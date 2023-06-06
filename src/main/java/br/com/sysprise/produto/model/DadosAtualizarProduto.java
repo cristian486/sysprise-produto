@@ -31,7 +31,7 @@ public record DadosAtualizarProduto(@Min(1)
                                     Double estoqueMinimo,
                                     Boolean vendaFracionada,
                                     @Min(1)
-                                    Optional<Long> categoria_id,
+                                    Long categoria_id,
                                     @Min(1)
-                                    Optional<Long> unidade_id) {
+                                    Long unidade_id) {
 }

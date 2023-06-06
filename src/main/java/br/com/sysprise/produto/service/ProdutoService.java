@@ -1,6 +1,7 @@
 package br.com.sysprise.produto.service;
 
 import br.com.sysprise.produto.model.*;
+import br.com.sysprise.produto.model.Produto;
 import br.com.sysprise.produto.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import net.devh.boot.grpc.client.inject.GrpcClient;
@@ -25,6 +26,10 @@ public class ProdutoService {
 
     public Produto findProdutoById(Long id) {
         return produtoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("O produto requisitado não foi encontrado!"));
+    }
+
+    public Boolean produtoExiste(Long id) {
+        return produtoRepository.existsById(id);
     }
 
     public Page<DadosListagemProduto> listar(Pageable pageable) {
@@ -52,7 +57,6 @@ public class ProdutoService {
 
     public DadosDetalhamentoProduto atualizar(DadosAtualizarProduto dadosAtualizar) {
         Produto produto = this.findProdutoById(dadosAtualizar.id());
-        // TODO
         produto.atualizarCadastro(dadosAtualizar);
         return this.detalhar(produto.getId());
     }
@@ -68,5 +72,13 @@ public class ProdutoService {
 
     private Unidade getUnidadeDoProduto(Long id) {
         return unidadeStub.getUnidade(UnidadeId.newBuilder().setId(id).build());
+    }
+
+    public Boolean existeProdutosAssociadosCategoria(Long id) {
+        return produtoRepository.existsByCategoriaId(id);
+    }
+
+    public Boolean existeProdutosAssociadosUnidade(Long id) {
+        return produtoRepository.existsByUnidadeId(id);
     }
 }
